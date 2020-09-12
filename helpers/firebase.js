@@ -67,26 +67,24 @@ export async function getLogForToday(fireAuth, firestore) {
   }
 }
 
-// onLog: (log: Log?) => void
+// onLog: (log: Log[]) => void
 // Returns a function which can be called to cancel the subscription
-export function subscribeToLogForToday(fireAuth, firestore, onLog) {
+export function subscribeToLogForToday(fireAuth, firestore, onLogUpdate) {
   return firestore
     .collection('users')
     .doc(fireAuth.currentUser.uid)
     .collection('log')
     .where('date', '==', getStartOfToday())
-    .limit(1)
     .onSnapshot({
-      next: (query) => {
-        if (query.empty) onLog(null)
-        else {
-          const doc = query.docs[0]
-
-          onLog({
-            id: doc.id,
-            ...doc.data(),
+      next: (snapshot) => {
+        onLogUpdate(
+          snapshot.docs.map((e) => {
+            return {
+              id: e.id,
+              ...e.data(),
+            }
           })
-        }
+        )
       },
     })
 }
