@@ -1,0 +1,56 @@
+@mixin baseTheme {
+  --font-body: 'Poppins', 'sans-serif';
+  --font-mono: 'Roboto Mono', 'monoscpace';
+  --font-icon: 'Material Icons';
+}
+
+@mixin lightTheme {
+  --color-primary: theme('colors.white');
+  --color-primary-light: theme('colors.white');
+  --color-primary-dark: theme('colors.gray.200');
+  --color-secondary: theme('colors.gray.500');
+  --color-secondary-light: theme('colors.gray.400');
+  --color-secondary-dark: theme('colors.gray.600');
+  --color-divider: theme('colors.blue.200');
+  --color-divider-light: theme('colors.blue.100');
+  --color-divider-dark: theme('colors.blue.300');
+}
+
+@mixin darkTheme {
+  --color-primary: theme('colors.gray.800');
+  --color-primary-light: theme('colors.gray.900');
+  --color-primary-dark: theme('colors.gray.700');
+  --color-secondary: theme('colors.gray.400');
+  --color-secondary-light: theme('colors.gray.300');
+  --color-secondary-dark: theme('colors.gray.200');
+  --color-divider: theme('colors.gray.700');
+  --color-divider-light: theme('colors.gray.700');
+  --color-divider-dark: theme('colors.gray.800');
+}
+
+@mixin blueTheme {
+  --color-accent: #34cdfa;
+  --color-accent-light: theme('colors.blue.200');
+  --color-accent-dark: #00c3ff;
+  --bg-grad-1: #ccf2fe;
+  --bg-grad-2: #67d9fb;
+}
+
+@mixin tealTheme {
+  --color-accent: theme('colors.teal.500');
+  --color-accent-light: theme('colors.teal.900');
+  --color-accent-dark: theme('colors.teal.600');
+  --bg-grad-1: theme('colors.gray.800');
+  --bg-grad-2: theme('colors.gray.900');
+}
+
+:root {
+  @include baseTheme;
+  @include lightTheme;
+  @include blueTheme;
+}
+
+:root.dark-mode {
+  @include darkTheme;
+  @include tealTheme;
+}
