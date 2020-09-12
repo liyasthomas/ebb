@@ -5,11 +5,27 @@ import sadAnimation from '~/static/animations/sad.json'
 import depressedAnimation from '~/static/animations/depressed.json'
 
 const moods = [
-  { name: 'Happy', options: { animationData: happyAnimation } },
-  { name: 'Anxious', options: { animationData: anxiousAnimation } },
-  { name: 'Stress', options: { animationData: stressAnimation } },
-  { name: 'Sad', options: { animationData: sadAnimation } },
-  { name: 'Depressed', options: { animationData: depressedAnimation } },
+  {
+    name: 'Happy',
+    options: { animationData: happyAnimation },
+    description: '',
+  },
+  {
+    name: 'Anxious',
+    options: { animationData: anxiousAnimation },
+    description: '',
+  },
+  {
+    name: 'Stress',
+    options: { animationData: stressAnimation },
+    description: '',
+  },
+  { name: 'Sad', options: { animationData: sadAnimation }, description: '' },
+  {
+    name: 'Depressed',
+    options: { animationData: depressedAnimation },
+    description: '',
+  },
 ]
 
 export default moods

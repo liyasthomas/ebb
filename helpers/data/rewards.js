@@ -5,11 +5,23 @@ import picnicAnimation from '~/static/animations/picnic.json'
 import napAnimation from '~/static/animations/nap.json'
 
 const rewards = [
-  { name: 'Ice cream', options: { animationData: icecreamAnimation } },
-  { name: 'Volunteer', options: { animationData: volunteerAnimation } },
-  { name: 'Game', options: { animationData: gameAnimation } },
-  { name: 'Picnic', options: { animationData: picnicAnimation } },
-  { name: 'Nap', options: { animationData: napAnimation } },
+  {
+    name: 'Ice cream',
+    options: { animationData: icecreamAnimation },
+    description: '',
+  },
+  {
+    name: 'Volunteer',
+    options: { animationData: volunteerAnimation },
+    description: '',
+  },
+  { name: 'Game', options: { animationData: gameAnimation }, description: '' },
+  {
+    name: 'Picnic',
+    options: { animationData: picnicAnimation },
+    description: '',
+  },
+  { name: 'Nap', options: { animationData: napAnimation }, description: '' },
 ]
 
 export default rewards

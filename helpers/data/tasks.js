@@ -4,14 +4,13 @@ import readAnimation from '~/static/animations/read.json'
 import listenAnimation from '~/static/animations/listen.json'
 import talkAnimation from '~/static/animations/talk.json'
 
-// TODO : Fix content
 const tasks = [
   {
     name: 'Meditate',
     duration: '20 mins',
     description: [
       'Do 10 sets of breathing exercises.',
-      'Lorem ipsum dolor sit amet adipisicing.',
+      'Do 10 minutes Yoga sequence.',
     ],
     quote: {
       description:
@@ -24,13 +23,13 @@ const tasks = [
     name: 'Jog',
     duration: '20 mins',
     description: [
-      'Do 10 sets of breathing exercises.',
-      'Lorem ipsum dolor sit amet adipisicing.',
+      'Do 5 minutes brisk walking (warm up).',
+      'Do 10 minutes jogging.',
+      'Do 5 minutes marching in place or knee lifts.',
     ],
     quote: {
-      description:
-        '“Meditation and concentration are the way to a life of serenity.”',
-      author: '— Baba Ram Dass',
+      description: '“Running allows me to set my mind free.”',
+      author: '— Kara Goucher',
     },
     options: { animationData: jogAnimation },
   },
@@ -38,41 +37,35 @@ const tasks = [
     name: 'Read',
     duration: '20 mins',
     description: [
-      'Do 10 sets of breathing exercises.',
-      'Lorem ipsum dolor sit amet adipisicing.',
+      'Read novels, poetry, humor, fiction etc.',
+      'Read newspaper.',
     ],
     quote: {
       description:
-        '“Meditation and concentration are the way to a life of serenity.”',
-      author: '— Baba Ram Dass',
+        '“There is more treasure in books than in all the pirate’s loot on Treasure Island.”',
+      author: '— Walt Disney',
     },
     options: { animationData: readAnimation },
   },
   {
     name: 'Listen',
     duration: '20 mins',
-    description: [
-      'Do 10 sets of breathing exercises.',
-      'Lorem ipsum dolor sit amet adipisicing.',
-    ],
+    description: ['Listen to podcast.', 'Listen to music.'],
     quote: {
       description:
-        '“Meditation and concentration are the way to a life of serenity.”',
-      author: '— Baba Ram Dass',
+        '“We have two ears and one tongue so that we would listen more and talk less.”',
+      author: '— Diogenes',
     },
     options: { animationData: listenAnimation },
   },
   {
     name: 'Talk',
     duration: '20 mins',
-    description: [
-      'Do 10 sets of breathing exercises.',
-      'Lorem ipsum dolor sit amet adipisicing.',
-    ],
+    description: ['Talk to your friends.', 'Talk to your family.'],
     quote: {
       description:
-        '“Meditation and concentration are the way to a life of serenity.”',
-      author: '— Baba Ram Dass',
+        '“A lot of problems in the world would be solved if we talked to each other instead of about each other.”',
+      author: '— Nickey Gumbel',
     },
     options: { animationData: talkAnimation },
   },
