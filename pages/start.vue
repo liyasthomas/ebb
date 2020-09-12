@@ -117,16 +117,21 @@
           <ButtonSecondary
             icon="arrow_forward"
             class="ml-2"
-            @click.native="next"
+            @click.native="finishClicked"
           />
         </div>
         <TranslateGroupDown
           class="flex flex-col items-center justify-center flex-1 max-w-lg px-8 py-4 mx-auto text-center"
         >
           <div key="body" class="flex flex-col items-center justify-center">
-            <div class="text-xl font-bold">{{ activeMood }}</div>
-            <div class="text-2xl font-bold">{{ activeTask }}</div>
-            <div class="text-3xl font-bold">{{ activeReward }}</div>
+            <ul class="text-xl font-bold text-left list-disc">
+              <li
+                v-for="(task, index) in tasks[activeTaskIndex].description"
+                :key="index"
+              >
+                {{ task }}
+              </li>
+            </ul>
           </div>
         </TranslateGroupDown>
       </swiper-slide>
@@ -144,7 +149,7 @@
         <ButtonPrimary
           v-else
           icon="done"
-          label="Finish"
+          label="Accept"
           :loading="finishing"
           @click.native="finishClicked"
         />
