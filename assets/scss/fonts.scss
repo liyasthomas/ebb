@@ -1,0 +1,54 @@
+/* material-icons-outlined - latin */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Material Icons'), local('MaterialIcons-Regular'),
+    url('~static/fonts/material-icons-outlined-v23-latin-regular.woff2')
+      format('woff2');
+}
+
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url('~static/fonts/poppins-v12-latin-regular.woff2') format('woff2'),
+    url('~static/fonts/poppins-v12-latin-regular.woff') format('woff');
+}
+
+/* poppins-700 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url('~static/fonts/poppins-v12-latin-700.woff2') format('woff2'),
+    url('~static/fonts/poppins-v12-latin-700.woff') format('woff');
+}
+
+/* poppins-800 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Poppins Extra Bold'), local('Poppins-Extra-Bold'),
+    url('~static/fonts/poppins-v12-latin-800.woff2') format('woff2'),
+    url('~static/fonts/poppins-v12-latin-800.woff') format('woff');
+}
+
+/* roboto-mono-regular - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'),
+    url('~static/fonts/roboto-mono-v12-latin-regular.woff2') format('woff2'),
+    url('~static/fonts/roboto-mono-v12-latin-regular.woff') format('woff');
+}
