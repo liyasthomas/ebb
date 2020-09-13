@@ -55,7 +55,7 @@
               <Empty v-else />
             </div>
 
-            <TodayProfile key="today" />
+            <TodayLife key="today" />
             <PastLife key="past" />
           </TranslateGroupDown>
         </div>
