@@ -68,11 +68,11 @@
               color="blue"
             />
             <ButtonPrimary
-              to="/finish"
               label="I'm Done"
               icon="done"
               color="green"
               class="mt-4 md:ml-4 md:mt-0"
+              :loading="finishing"
               @click.native="finishTask"
             />
           </div>
@@ -124,13 +124,8 @@ export default {
       loading: true,
       objectives: [],
       cancelLogSubscription: null,
+      finishing: false,
     }
-  },
-  computed: {
-    // TEMP
-    // objective() {
-    //   return this.objectives[0] || tasks[0]
-    // },
   },
   mounted() {
     const subscription = fb.subscribeToLogForToday(
@@ -138,13 +133,15 @@ export default {
       this.$fireStore,
       (logs) => {
         if (logs) {
-          this.objectives = logs.map((log) => tasks[log.activeTask])
+          this.objectives = logs
+            .filter((item) => item.taskStatus === 'PENDING')
+            .map((log) => {
+              return tasks[log.activeTask]
+            })
           this.loading = false
         } else {
-          // TODO: Handle no task today state
           this.todayTask = null
           this.objectives = null
-          // [tasks[0]] // TODO : Placeholder, remove this with null assign
         }
       }
     )
@@ -154,17 +151,35 @@ export default {
     if (this.cancelLogSubscription) this.cancelLogSubscription()
   },
   methods: {
-    async finishTask() {
-      // TODO : Loading state ?
-      // TODO : Completion State ?
-      // TODO : Toasts ?
-      await fb.completeTaskForToday(this.$fireAuth, this.$fireStore)
+    async finishTask(objective) {
+      this.finishing = true
+      await fb
+        .completeTask(this.$fireAuth, this.$fireStore, objective)
+        .then(() => {
+          this.$toast.success('Task completed', {
+            icon: 'done',
+          })
+          this.$router.push('/finish')
+        })
+        .catch(() => {
+          this.$toast.error('Something went wrong, try again', {
+            icon: 'error',
+          })
+        })
     },
     async cancelTask() {
-      // TODO : Loading state ?
-      // TODO : Completion State ?
-      // TODO : Toasts ?
-      await fb.cancelTaskForToday(this.$fireAuth, this.$fireStore)
+      await fb
+        .cancelTask(this.$fireAuth, this.$fireStore)
+        .then(() => {
+          this.$toast.error('Task cancelled', {
+            icon: 'done',
+          })
+        })
+        .catch(() => {
+          this.$toast.error('Something went wrong, try again', {
+            icon: 'error',
+          })
+        })
     },
   },
 }

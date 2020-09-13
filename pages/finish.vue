@@ -13,7 +13,11 @@
       <div class="mb-4 text-xl font-bold text-secondaryDark">
         Enjoy your reward
       </div>
-      <ButtonPrimary icon="keyboard_arrow_right" label="Start again" />
+      <ButtonPrimary
+        to="/start"
+        icon="keyboard_arrow_right"
+        label="Start again"
+      />
     </div>
   </TranslateGroupDown>
 </template>

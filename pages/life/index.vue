@@ -4,7 +4,6 @@
       <TranslateGroupDown>
         <TodayLife key="today" />
         <PastLife key="past" />
-        <Empty key="empty" />
       </TranslateGroupDown>
     </div>
     <SidebarRight> </SidebarRight>

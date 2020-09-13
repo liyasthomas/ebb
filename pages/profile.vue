@@ -20,10 +20,10 @@
             </div>
 
             <!-- TODO : Liyyyaaasssss dooooo youuuurrr unicorn magikkkkk!!!! --->
-            <div key="streak" v-if="!loadingStreak">
+            <div v-if="!loadingStreak" key="streak">
               Streak Count: {{ streakCount }}
             </div>
-            <div key="streak" v-else>Loading Streak Count</div>
+            <div v-else key="streak">Loading Streak Count</div>
 
             <TodayTasks key="today" />
             <PastTasks key="past" />
