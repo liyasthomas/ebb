@@ -1,5 +1,47 @@
 import { getStartOfToday, epochDays } from '~/helpers/utils/dateutils'
 
+export async function getStat(fireAuth, firestore, statName) {
+  const doc = await firestore
+    .collection('users')
+    .doc(fireAuth.currentUser.uid)
+    .collection('misc')
+    .doc('stats')
+    .get()
+
+  const data = doc.data()
+  return data ? doc.data()[statName] : null
+}
+
+export async function setStat(fireAuth, firestore, statName, statValue) {
+  const doc = await firestore
+    .collection('users')
+    .doc(fireAuth.currentUser.uid)
+    .collection('misc')
+    .doc('stats')
+    .get()
+
+  if (!doc.exists) {
+    const obj = {}
+    obj[statName] = statValue
+
+    await firestore
+      .collection('users')
+      .doc(fireAuth.currentUser.uid)
+      .collection('misc')
+      .doc('stats')
+      .set(obj)
+  } else {
+    const obj = {}
+    obj[statName] = statValue
+
+    await firestore
+      .collection('users')
+      .doc(fireAuth.currentUser.uid)
+      .doc('stats')
+      .update(obj)
+  }
+}
+
 export async function cancelTask(fireAuth, firestore, task) {
   if (!task.id) throw new Error('No task ID')
 
