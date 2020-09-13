@@ -9,7 +9,7 @@
       <div
         v-for="(objective, index) in objectives"
         :key="index"
-        class="inline-flex flex-col items-center flex-1 p-4 md:items-start md:flex-row w-full"
+        class="inline-flex flex-col items-center flex-1 w-full p-4 md:items-start md:flex-row"
       >
         <div class="w-full">
           <div
@@ -76,7 +76,7 @@
               color="green"
               class="mt-4 md:ml-4 md:mt-0"
               :loading="finishing"
-              @click.native="finishTask"
+              @click.native="finishTask(index)"
             />
           </div>
           <div v-if="loading" class="my-4 animate-pulse">
@@ -95,7 +95,7 @@
           <span
             v-else
             class="font-mono text-xs text-red-400 transition duration-150 ease-in-out border-b cursor-pointer hover:border-red-400 focus:outline-none"
-            @click="cancelTask"
+            @click="cancelTask(index)"
           >
             Cancel Task
           </span>
@@ -125,10 +125,21 @@ export default {
   data() {
     return {
       loading: true,
-      objectives: [],
+      todaysLogs: [],
       cancelLogSubscription: null,
       finishing: false,
     }
+  },
+  computed: {
+    objectives() {
+      if (this.todaysLogs == null) {
+        return null
+      }
+
+      return this.todaysLogs.map((log) => {
+        return moods[log.activeTask]
+      })
+    },
   },
   mounted() {
     const subscription = fb.subscribeToLogForToday(
@@ -136,14 +147,11 @@ export default {
       this.$fireStore,
       (logs) => {
         if (logs) {
-          this.objectives = logs
-            .filter((item) => item.taskStatus === 'PENDING')
-            .map((log) => {
-              return moods[log.activeMood]
-            })
+          this.todaysLogs = logs.filter((item) => item.taskStatus === 'PENDING')
+
           this.loading = false
         } else {
-          this.objectives = null
+          this.todaysLogs = null
         }
       }
     )
@@ -153,35 +161,40 @@ export default {
     if (this.cancelLogSubscription) this.cancelLogSubscription()
   },
   methods: {
-    async finishTask(objective) {
+    async finishTask(taskIndex) {
       this.finishing = true
-      await fb
-        .completeTask(this.$fireAuth, this.$fireStore, objective)
-        .then(() => {
-          this.$toast.success('Task completed', {
-            icon: 'done',
-          })
-          this.$router.push('/finish')
+      const logEntry = this.todaysLogs[taskIndex]
+
+      try {
+        await fb.completeLogTask(this.$fireAuth, this.$fireStore, logEntry)
+
+        this.$toast.success('Task completed', {
+          icon: 'done',
         })
-        .catch(() => {
-          this.$toast.error('Something went wrong, try again', {
-            icon: 'error',
-          })
+
+        this.$router.push(`/finish?id=${logEntry.activeTask}`)
+      } catch (_e) {
+        this.$toast.error('Something went wrong, try again', {
+          icon: 'error',
         })
+      }
     },
-    async cancelTask(task) {
-      await fb
-        .cancelTask(this.$fireAuth, this.$fireStore)
-        .then(() => {
-          this.$toast.error('Task cancelled', {
-            icon: 'done',
-          })
+    async cancelTask(taskIndex) {
+      try {
+        await fb.cancelLogTask(
+          this.$fireAuth,
+          this.$fireStore,
+          this.todaysLogs[taskIndex]
+        )
+
+        this.$toast.error('Task cancelled', {
+          icon: 'done',
         })
-        .catch(() => {
-          this.$toast.error('Something went wrong, try again', {
-            icon: 'error',
-          })
+      } catch (_e) {
+        this.$toast.error('Something went wrong, try again', {
+          icon: 'error',
         })
+      }
     },
   },
 }
