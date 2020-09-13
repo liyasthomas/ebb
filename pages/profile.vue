@@ -19,11 +19,41 @@
               </h1>
             </div>
 
-            <!-- TODO : Liyyyaaasssss dooooo youuuurrr unicorn magikkkkk!!!! --->
-            <div v-if="!loadingStreak" key="streak">
-              Streak Count: {{ streakCount }}
+            <div
+              key="streaks"
+              class="flex flex-col mb-8 transition duration-150 ease-in-out border rounded-lg lg:p-4 border-divider bg-primaryLight"
+            >
+              <div class="inline-flex flex-col flex-1 p-4">
+                <div class="text-xl font-bold text-secondaryDark">Streaks</div>
+              </div>
+              <div
+                v-if="!loadingStreak"
+                key="streak"
+                class="inline-flex flex-col flex-1 p-4"
+              >
+                <div class="space-x-12 space-y-12">
+                  <span v-for="(star, index) in streakCount" :key="index">
+                    <i
+                      class="text-yellow-300 material-icons"
+                      style="font-size: 46px"
+                      >star</i
+                    >
+                  </span>
+                </div>
+                <div v-if="streakCount === 0">
+                  <h2 class="text-xl font-bold text-secondaryDark">
+                    No ongoing streaks
+                  </h2>
+                  <p class="text-sm">
+                    Start completing today's task to start a streak.
+                  </p>
+                </div>
+                <h2 v-else class="text-xl font-bold text-secondaryDark">
+                  You are on a {{ streakCount }} day streak.
+                </h2>
+              </div>
+              <Empty v-else />
             </div>
-            <div v-else key="streak">Loading Streak Count</div>
 
             <TodayProfile key="today" />
             <PastLife key="past" />
