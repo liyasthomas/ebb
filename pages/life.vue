@@ -7,9 +7,6 @@
         ebb
       </div>
       <TabPrimary to="/life" label="Life" exact />
-      <!-- <TabPrimary to="/life/emotions" label="Emotions" exact /> -->
-      <!-- <TabPrimary to="/life/tasks" label="Tasks" exact /> -->
-      <!-- <TabPrimary to="/life/rewards" label="Rewards" exact /> -->
     </SidebarLeft>
     <div class="flex flex-col flex-1">
       <EmotionPrompt />
