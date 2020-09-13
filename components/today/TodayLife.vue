@@ -109,22 +109,28 @@ export default {
   data() {
     return {
       loading: true,
-      objective: tasks[0],
+      objectives: [],
       cancelLogSubscription: null,
     }
+  },
+  computed: {
+    // TEMP
+    objective() {
+      return this.objectives[0] || tasks[0]
+    },
   },
   mounted() {
     const subscription = fb.subscribeToLogForToday(
       this.$fireAuth,
       this.$fireStore,
-      (log) => {
-        if (log) {
-          this.objective = tasks[log.activeTask]
+      (logs) => {
+        if (logs) {
+          this.objectives = logs.map((log) => tasks[log.activeTask])
           this.loading = false
         } else {
           // TODO: Handle no task today state
           // this.todayTask = null
-          this.objective = tasks[0] // TODO : Placeholder, remove this with null assign
+          this.objectives = [tasks[0]] // TODO : Placeholder, remove this with null assign
         }
       }
     )
