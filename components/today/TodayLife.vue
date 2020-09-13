@@ -92,13 +92,15 @@
             v-if="loading"
             class="w-16 h-2 mt-2 rounded animate-pulse bg-secondaryLight"
           ></div>
-          <span
+          <button
             v-else
             class="font-mono text-xs text-red-400 transition duration-150 ease-in-out border-b cursor-pointer hover:border-red-400 focus:outline-none"
+            :tabindex="{ '-1': cancelling }"
+            :disabled="cancelling"
             @click="cancelTask(index)"
           >
             Cancel Task
-          </span>
+          </button>
         </div>
         <div
           v-if="loading"
@@ -128,6 +130,7 @@ export default {
       todaysLogs: [],
       cancelLogSubscription: null,
       finishing: false,
+      cancelling: false,
     }
   },
   computed: {
@@ -179,6 +182,7 @@ export default {
       }
     },
     async cancelTask(taskIndex) {
+      this.cancelling = true
       try {
         await fb.cancelLogTask(
           this.$fireAuth,
@@ -194,6 +198,7 @@ export default {
           icon: 'error',
         })
       }
+      this.cancelling = false
     },
   },
 }
