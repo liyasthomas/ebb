@@ -61,7 +61,7 @@ export default {
       this.deleting = true
 
       try {
-        await fb.deleteUser()
+        await fb.deleteUser(this.$fireAuth, this.$fireStore)
 
         this.$toast.success('Account deleted', {
           icon: 'save',
