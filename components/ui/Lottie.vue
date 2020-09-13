@@ -94,6 +94,9 @@ export default {
     })
     this.handleAnimation(this.anim)
   },
+  beforeDestroy() {
+    if (this.anim) this.anim.destroy()
+  },
   methods: {
     handleAnimation(anim) {
       this.anim = anim
