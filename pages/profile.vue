@@ -18,6 +18,13 @@
                 {{ this.$store.state.authUser.displayName }}
               </h1>
             </div>
+
+            <!-- TODO : Liyyyaaasssss dooooo youuuurrr unicorn magikkkkk!!!! --->
+            <div key="streak" v-if="!loadingStreak">
+              Streak Count: {{ streakCount }}
+            </div>
+            <div key="streak" v-else>Loading Streak Count</div>
+
             <TodayTasks key="today" />
             <PastTasks key="past" />
             <Empty key="empty" />
@@ -30,7 +37,29 @@
 </template>
 
 <script>
+import * as fb from '~/helpers/firebase'
+
 export default {
   middleware: 'auth-redirect-signin',
+  data() {
+    return {
+      loadingStreak: true,
+      streakCount: null,
+    }
+  },
+  mounted() {
+    this.fetchStreakCount()
+  },
+  methods: {
+    async fetchStreakCount() {
+      this.loadingStreak = true
+
+      const count = await fb.getStat(this.$fireAuth, this.$fireStore, 'streak')
+
+      this.streakCount = count || 0
+
+      this.loadingStreak = false
+    },
+  },
 }
 </script>
