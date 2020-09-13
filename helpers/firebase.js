@@ -37,30 +37,31 @@ export async function setStat(fireAuth, firestore, statName, statValue) {
     await firestore
       .collection('users')
       .doc(fireAuth.currentUser.uid)
+      .collection('misc')
       .doc('stats')
       .update(obj)
   }
 }
 
-export async function cancelTask(fireAuth, firestore, task) {
-  if (!task.id) throw new Error('No task ID')
+export async function cancelLogTask(fireAuth, firestore, log) {
+  if (!log.id) throw new Error('No log ID')
 
   await firestore
     .collection('users')
     .doc(fireAuth.currentUser.uid)
     .collection('log')
-    .doc(task.id)
+    .doc(log.id)
     .update({ taskStatus: 'CANCELLED' })
 }
 
-export async function completeTask(fireAuth, firestore, task) {
-  if (!task.id) throw new Error('No task ID')
+export async function completeLogTask(fireAuth, firestore, log) {
+  if (!log.id) throw new Error('No log ID')
 
   await firestore
     .collection('users')
     .doc(fireAuth.currentUser.uid)
     .collection('log')
-    .doc(task.id)
+    .doc(log.id)
     .update({ taskStatus: 'COMPLETED' })
 }
 
