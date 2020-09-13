@@ -8,6 +8,47 @@ export async function deleteUser(fireAuth, firestore) {
   fireAuth.currentUser.delete()
 }
 
+export async function getStreakCount(fireAuth, firestore) {
+  const dateToday = getStartOfToday()
+  const streakCount = await getStat(fireAuth, firestore, 'streak')
+  const streakLastDate = await getStat(fireAuth, firestore, 'streak_date')
+
+  if (!streakLastDate) {
+    await setStat(fireAuth, firestore, 'streak', 1)
+    await setStat(fireAuth, firestore, 'streak_date', getStartOfToday())
+
+    return 1
+  }
+  if (dateToday - streakLastDate <= epochDays(1)) return streakCount
+  else {
+    await setStat(fireAuth, firestore, 'streak', null)
+    await setStat(fireAuth, firestore, 'streak_date', null)
+
+    return null
+  }
+}
+
+export async function incrementStreak(fireAuth, firestore) {
+  const dateToday = getStartOfToday()
+  const streakCount = await getStat(fireAuth, firestore, 'streak')
+  const streakLastDate = await getStat(fireAuth, firestore, 'streak_date')
+
+  if (!streakLastDate) {
+    await setStat(fireAuth, firestore, 'streak', 1)
+    await setStat(fireAuth, firestore, 'streak_date', getStartOfToday())
+  }
+
+  if (streakLastDate === dateToday) return
+
+  if (dateToday - streakLastDate === epochDays(1)) {
+    await setStat(fireAuth, firestore, 'streak', streakCount + 1)
+    await setStat(fireAuth, firestore, 'streak_date', getStartOfToday())
+  } else {
+    await setStat(fireAuth, firestore, 'streak', null)
+    await setStat(fireAuth, firestore, 'streak_date', null)
+  }
+}
+
 export async function getStat(fireAuth, firestore, statName) {
   const doc = await firestore
     .collection('users')
@@ -150,6 +191,7 @@ export function subscribeToLogForToday(fireAuth, firestore, onLogUpdate) {
     .doc(fireAuth.currentUser.uid)
     .collection('log')
     .where('date', '==', getStartOfToday())
+    .orderBy('createdOn', 'desc')
     .onSnapshot({
       next: (snapshot) => {
         onLogUpdate(
@@ -173,6 +215,7 @@ export async function addLogEntryForToday(fireAuth, firestore, entry) {
     .collection('log')
     .add({
       date: getStartOfToday(),
+      createdOn: Date.now(),
       ...entry,
     })
 
