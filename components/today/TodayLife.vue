@@ -160,41 +160,38 @@ export default {
   methods: {
     async finishTask(taskIndex) {
       this.finishing = true
-      await fb
-        .completeLogTask(
-          this.$fireAuth,
-          this.$fireStore,
-          this.todaysLogs[taskIndex]
-        )
-        .then(() => {
-          this.$toast.success('Task completed', {
-            icon: 'done',
-          })
-          this.$router.push('/finish')
+      const logEntry = this.todaysLogs[taskIndex]
+
+      try {
+        await fb.completeLogTask(this.$fireAuth, this.$fireStore, logEntry)
+
+        this.$toast.success('Task completed', {
+          icon: 'done',
         })
-        .catch(() => {
-          this.$toast.error('Something went wrong, try again', {
-            icon: 'error',
-          })
+
+        this.$router.push(`/finish?t_id=${logEntry.activeTask}`)
+      } catch (_e) {
+        this.$toast.error('Something went wrong, try again', {
+          icon: 'error',
         })
+      }
     },
     async cancelTask(taskIndex) {
-      await fb
-        .cancelLogTask(
+      try {
+        await fb.cancelLogTask(
           this.$fireAuth,
           this.$fireStore,
           this.todaysLogs[taskIndex]
         )
-        .then(() => {
-          this.$toast.error('Task cancelled', {
-            icon: 'done',
-          })
+
+        this.$toast.error('Task cancelled', {
+          icon: 'done',
         })
-        .catch(() => {
-          this.$toast.error('Something went wrong, try again', {
-            icon: 'error',
-          })
+      } catch (_e) {
+        this.$toast.error('Something went wrong, try again', {
+          icon: 'error',
         })
+      }
     },
   },
 }
