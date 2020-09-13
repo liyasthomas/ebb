@@ -4,7 +4,8 @@
   <h1 align="center">ebb</h1>
   <h3 align="center">
 
-   ![](https://img.shields.io/badge/contributions-welcome-34cdfa)
+![](https://img.shields.io/badge/contributions-welcome-34cdfa)
+
   </h3>
 </p>
 
@@ -26,7 +27,7 @@ An immersive task-based journey that inspires people towards self-discovery and 
 
 ---
 
-[![Video demo](https://yt-embed.herokuapp.com/embed?v=MyVzHEuC5CY)](https://www.youtube.com/watch?v=MyVzHEuC5CY)
+[![Video demo](https://yt-embed.herokuapp.com/embed?v=VrhNVepG1lI)](https://www.youtube.com/watch?v=VrhNVepG1lI)
 
 ---
 
@@ -50,33 +51,38 @@ ebb helps to solidify the habit of taking actionable steps to deal with one's co
   <summary><b>Table of Contents</b> (click to expand)</summary>
   <p align="center">
 
-  - [Features](#Features)
-  - [Demo](#Demo)
-  - [Usage](#Usage)
-  - [Built with](#built-with)
-  - [Installation](#Installation)
-  - [Authors](#Authors)
-  - [Support](#Support)
-  - [Contributing](#Contributing)
-  - [License](#License)
+- [Features](#Features)
+- [Demo](#Demo)
+- [Usage](#Usage)
+- [Built with](#built-with)
+- [Installation](#Installation)
+- [Authors](#Authors)
+- [Support](#Support)
+- [Contributing](#Contributing)
+- [License](#License)
   </p>
 </details>
 
 ## Features
 
 ### **Emotion tracking:**
+
 Learn about your mood patterns and visually see yourself improve.
 
 ### **Tasks:**
+
 Level up your emotional states as you learn, challenge yourself with daily tasks.
 
 ### **Rewards:**
+
 Take actionable steps to earn rewards - learning accompanied by positive feelings are more likely to be remembered.
 
 ### **Streaks:**
+
 Count how many consecutive days you're able to complete tasks.
 
 ### **Synced:**
+
 All your information in any device, anywhere, everytime.
 
 ## Demo
