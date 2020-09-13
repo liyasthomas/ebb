@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import * as fb from '~/helpers/firebase'
+
 export default {
   middleware: 'auth-redirect-signin',
   data() {
@@ -59,7 +61,7 @@ export default {
       this.deleting = true
 
       try {
-        await this.$fireAuth.currentUser.delete()
+        await fb.deleteUser()
 
         this.$toast.success('Account deleted', {
           icon: 'save',
