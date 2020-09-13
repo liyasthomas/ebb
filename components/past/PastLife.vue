@@ -5,7 +5,7 @@
     <div class="inline-flex flex-col flex-1 p-4">
       <div class="mb-4 text-xl font-bold text-secondaryDark">Past 7 days</div>
       <div class="flex overflow-auto">
-        <table class="w-full">
+        <table v-if="past.length !== 0" class="w-full">
           <thead class="text-xs text-left uppercase">
             <tr>
               <th class="py-3 pr-6 border-b border-divider">Date</th>
@@ -15,9 +15,7 @@
             </tr>
           </thead>
           <tbody>
-            <EmptyTable v-if="past.length === 0" />
-            <EmptyTable v-if="past.length === 0" />
-            <tr v-for="(day, index) in past" v-else :key="index">
+            <tr v-for="(day, index) in past" :key="index">
               <td class="py-4 pr-6 whitespace-no-wrap border-b border-divider">
                 <div class="flex items-center">
                   <div class="truncate">
@@ -46,6 +44,7 @@
             </tr>
           </tbody>
         </table>
+        <Empty v-else />
       </div>
     </div>
   </div>
