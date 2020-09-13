@@ -10,13 +10,16 @@
       :height="'260px'"
       :options="reward.options"
       :controls="false"
-      :loop="false"
     />
     <div key="body" class="flex flex-col items-center justify-center w-full">
-      {{ this.$route.query.id }}
       <div class="mb-4 text-xl font-bold text-secondaryDark">
         {{ reward.name }}
       </div>
+      <ul class="mb-4 ml-4 space-y-2 text-left list-disc">
+        <li v-for="description in reward.description" :key="description">
+          {{ description }}
+        </li>
+      </ul>
       <ButtonPrimary to="/life" icon="keyboard_arrow_right" label="Home" />
     </div>
   </TranslateGroupDown>
