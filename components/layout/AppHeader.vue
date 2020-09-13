@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-20">
+  <header class="sticky top-0 z-20 bg-white bg-opacity-75">
     <TranslateDown>
       <nav
         class="container flex flex-wrap items-center justify-between px-4 py-2 mx-auto transition duration-150 ease-in-out bg-transparent border-b border-transparent"
