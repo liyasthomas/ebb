@@ -190,14 +190,14 @@ export async function updateLogEntry(fireAuth, firestore, entry) {
     .set(storedData)
 }
 
-export async function deleteLogEntry(fireAuth, firestore, entry) {
-  if (!entry.id) throw new Error('Entry ID not found.')
+export async function deleteLogEntry(fireAuth, firestore, id) {
+  if (!id) throw new Error('Entry ID not found.')
 
   await firestore
     .collection('users')
     .doc(fireAuth.currentUser.uid)
     .collection('log')
-    .doc(entry.id)
+    .doc(id)
     .delete()
 }
 

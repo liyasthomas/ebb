@@ -12,6 +12,7 @@
               <th class="px-6 py-3 border-b border-divider">Task</th>
               <th class="px-6 py-3 border-b border-divider">Status</th>
               <th class="px-6 py-3 border-b border-divider">Reward</th>
+              <th class="px-6 py-3 border-b border-divider">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +41,15 @@
                 class="px-6 py-4 font-bold whitespace-no-wrap border-b text-secondaryDark border-divider"
               >
                 {{ day.reward }}
+              </td>
+              <td
+                class="px-6 py-4 font-bold whitespace-no-wrap border-b text-secondaryDark border-divider"
+              >
+                <ButtonSecondary
+                  color="gray"
+                  icon="delete"
+                  @click.native="deleteLog(day.id)"
+                />
               </td>
             </tr>
           </tbody>
@@ -75,9 +85,10 @@ export default {
               date: getShortDateString(log.date),
               mood: moods[log.activeMood].name,
               task: tasks[log.activeTask].name,
-              duration: '20 mins',
+              duration: tasks[log.activeTask].duration,
               status: this.getTaskStatusMessage(log.taskStatus),
               reward: rewards[log.activeReward].name,
+              id: log.id,
             }
           })
           .reverse()
@@ -108,6 +119,18 @@ export default {
           return 'red'
         default:
           break
+      }
+    },
+    async deleteLog(logId) {
+      try {
+        await fb.deleteLogEntry(this.$fireAuth, this.$fireStore, logId)
+        this.$toast.error('Task deleted', {
+          icon: 'done',
+        })
+      } catch (_e) {
+        this.$toast.error('Something went wrong, try again', {
+          icon: 'error',
+        })
       }
     },
   },
