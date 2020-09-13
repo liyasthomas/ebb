@@ -29,6 +29,8 @@ module.exports = {
         divider: 'var(--color-divider)',
         dividerLight: 'var(--color-divider-light)',
         dividerDark: 'var(--color-divider-dark)',
+        bgGrad1: 'var(bg-grad-1)',
+        bgGrad2: 'var(bg-grad-2)',
       },
       inset: {
         header: '60px',
