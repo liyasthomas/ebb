@@ -3,7 +3,7 @@
     class="flex flex-col mt-8 transition duration-150 ease-in-out border rounded-lg lg:p-4 border-divider bg-primaryLight"
   >
     <div class="inline-flex flex-col flex-1 p-4">
-      <div class="mb-4 text-xl font-bold text-secondaryDark">Past 7 days</div>
+      <div class="mb-4 text-xl font-bold text-secondaryDark">Last 7 days</div>
       <div class="flex overflow-auto">
         <table v-if="past.length !== 0" class="w-full">
           <thead class="text-xs text-left uppercase">

@@ -8,6 +8,7 @@ const tasks = [
   {
     name: 'Meditate',
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=d4S4twjeWTs',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
@@ -22,6 +23,7 @@ const tasks = [
   {
     name: 'Jog',
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=KxKJEIqS1HQ',
     description: [
       'Do 5 minutes brisk walking (warm up).',
       'Do 10 minutes jogging.',
@@ -36,9 +38,10 @@ const tasks = [
   {
     name: 'Read',
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=K4Tn4tv836A',
     description: [
-      'Read novels, poetry, humor, fiction etc.',
       'Read newspaper.',
+      'Read novels, poetry, humor, fiction etc.',
     ],
     quote: {
       description:
@@ -50,6 +53,7 @@ const tasks = [
   {
     name: 'Listen',
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=ez3GgRqhNvA',
     description: ['Listen to podcast.', 'Listen to music.'],
     quote: {
       description:
@@ -61,6 +65,7 @@ const tasks = [
   {
     name: 'Talk',
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=A_eG1md3YuY',
     description: ['Talk to your friends.', 'Talk to your family.'],
     quote: {
       description:

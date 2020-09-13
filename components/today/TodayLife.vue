@@ -9,7 +9,7 @@
       <div
         v-for="(objective, index) in objectives"
         :key="index"
-        class="inline-flex flex-col items-center flex-1 p-4 md:items-start md:flex-row"
+        class="inline-flex flex-col items-center flex-1 w-full p-4 md:items-start md:flex-row"
       >
         <div class="w-full">
           <div
@@ -62,11 +62,14 @@
             v-else
             class="inline-flex flex-col flex-1 w-full my-4 md:flex-row"
           >
-            <ButtonPrimary
-              icon="play_circle_outline"
-              label="Learn How"
-              color="blue"
-            />
+            <a
+              class="inline-flex items-center justify-center px-4 py-2 font-bold text-blue-800 transition duration-150 ease-in-out bg-blue-200 border-2 border-blue-200 rounded-lg focus:outline-none hover:text-blue-900 hover:bg-blue-300 hover:border-blue-300"
+              :href="objective.how"
+              target="_blank"
+            >
+              Learn How
+              <i class="ml-2 material-icons">play_circle_outline</i>
+            </a>
             <ButtonPrimary
               label="I'm Done"
               icon="done"
@@ -169,7 +172,7 @@ export default {
           icon: 'done',
         })
 
-        this.$router.push(`/finish?t_id=${logEntry.activeTask}`)
+        this.$router.push(`/finish?id=${logEntry.activeTask}`)
       } catch (_e) {
         this.$toast.error('Something went wrong, try again', {
           icon: 'error',

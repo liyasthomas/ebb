@@ -9,6 +9,7 @@ const moods = [
     name: 'Happy',
     options: { animationData: happyAnimation },
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
@@ -23,6 +24,7 @@ const moods = [
     name: 'Anxious',
     options: { animationData: anxiousAnimation },
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
@@ -37,6 +39,7 @@ const moods = [
     name: 'Stress',
     options: { animationData: stressAnimation },
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
@@ -51,6 +54,7 @@ const moods = [
     name: 'Sad',
     options: { animationData: sadAnimation },
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
@@ -65,6 +69,7 @@ const moods = [
     name: 'Depressed',
     options: { animationData: depressedAnimation },
     duration: '20 mins',
+    how: 'https://www.youtube.com/watch?v=',
     description: [
       'Do 10 sets of breathing exercises.',
       'Do 10 minutes Yoga sequence.',
