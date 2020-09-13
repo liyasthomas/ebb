@@ -83,7 +83,7 @@ export default {
     async fetchStreakCount() {
       this.loadingStreak = true
 
-      const count = await fb.getStat(this.$fireAuth, this.$fireStore, 'streak')
+      const count = await fb.getStreakCount(this.$fireAuth, this.$fireStore)
 
       this.streakCount = count || 0
 
