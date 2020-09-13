@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import tasks from '~/helpers/data/tasks'
 import finishAnimation from '~/static/animations/finish.json'
 
 export default {
@@ -31,6 +32,11 @@ export default {
     return {
       defaultOptions: { animationData: finishAnimation },
     }
+  },
+  computed: {
+    task() {
+      return tasks[this.$route.query.id || 0]
+    },
   },
   head() {
     return {
