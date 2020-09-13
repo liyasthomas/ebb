@@ -1,5 +1,13 @@
 import { getStartOfToday, epochDays } from '~/helpers/utils/dateutils'
 
+export async function deleteUser(fireAuth, firestore) {
+  // Delete all user data
+  await firestore.collection('users').doc(fireAuth.currentUser.uid).delete()
+
+  // Delete account
+  fireAuth.currentUser.delete()
+}
+
 export async function getStat(fireAuth, firestore, statName) {
   const doc = await firestore
     .collection('users')
