@@ -282,6 +282,8 @@ export function subscribeToLogEntriesForPast7Days(
     .doc(fireAuth.currentUser.uid)
     .collection('log')
     .where('date', '>=', getStartOfToday() - epochDays(7))
+    .orderBy('date', 'desc')
+    .orderBy('createdOn', 'desc')
     .onSnapshot({
       next: (snapshot) => {
         onLogUpdate(

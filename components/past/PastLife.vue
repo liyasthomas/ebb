@@ -79,19 +79,17 @@ export default {
       this.$fireAuth,
       this.$fireStore,
       (logs) => {
-        this.past = logs
-          .map((log) => {
-            return {
-              date: getShortDateString(log.date),
-              mood: moods[log.activeMood].name,
-              task: tasks[log.activeTask].name,
-              duration: tasks[log.activeTask].duration,
-              status: this.getTaskStatusMessage(log.taskStatus),
-              reward: rewards[log.activeReward].name,
-              id: log.id,
-            }
-          })
-          .reverse()
+        this.past = logs.map((log) => {
+          return {
+            date: getShortDateString(log.date),
+            mood: moods[log.activeMood].name,
+            task: tasks[log.activeTask].name,
+            duration: tasks[log.activeTask].duration,
+            status: this.getTaskStatusMessage(log.taskStatus),
+            reward: rewards[log.activeReward].name,
+            id: log.id,
+          }
+        })
       }
     )
     this.cancel7DaysSubscription = sub
