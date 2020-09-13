@@ -202,6 +202,8 @@ export default {
           taskStatus: 'PENDING', // 'PENDING' | 'COMPLETE' | 'NOT-COMPLETE' | 'CANCELLED'
         })
 
+        await fb.incrementStreak(this.$fireAuth, this.$fireStore)
+
         this.$router.push('/')
       } catch (e) {
         this.$toast.error(e, {
