@@ -3,8 +3,7 @@
     <div class="inline-flex flex-col flex-1 p-4">
       <TranslateGroupDown>
         <TodayTasks key="today" />
-        <PastTasks key="past" />
-        <Empty key="empty" />
+        <PastLife key="past" />
       </TranslateGroupDown>
     </div>
     <SidebarRight> </SidebarRight>

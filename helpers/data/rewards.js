@@ -8,18 +8,45 @@ const rewards = [
   {
     name: 'Ice cream',
     options: { animationData: icecreamAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
   {
     name: 'Volunteer',
     options: { animationData: volunteerAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
   { name: 'Game', options: { animationData: gameAnimation }, description: '' },
   {
     name: 'Picnic',
     options: { animationData: picnicAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
   { name: 'Nap', options: { animationData: napAnimation }, description: '' },
 ]

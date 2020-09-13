@@ -8,23 +8,72 @@ const moods = [
   {
     name: 'Happy',
     options: { animationData: happyAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
   {
     name: 'Anxious',
     options: { animationData: anxiousAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
   {
     name: 'Stress',
     options: { animationData: stressAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
-  { name: 'Sad', options: { animationData: sadAnimation }, description: '' },
+  {
+    name: 'Sad',
+    options: { animationData: sadAnimation },
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
+  },
   {
     name: 'Depressed',
     options: { animationData: depressedAnimation },
-    description: '',
+    duration: '20 mins',
+    description: [
+      'Do 10 sets of breathing exercises.',
+      'Do 10 minutes Yoga sequence.',
+    ],
+    quote: {
+      description:
+        '“Meditation and concentration are the way to a life of serenity.”',
+      author: '— Baba Ram Dass',
+    },
   },
 ]
 

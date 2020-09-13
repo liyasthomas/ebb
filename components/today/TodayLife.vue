@@ -140,7 +140,6 @@ export default {
             })
           this.loading = false
         } else {
-          this.todayTask = null
           this.objectives = null
         }
       }
@@ -167,7 +166,7 @@ export default {
           })
         })
     },
-    async cancelTask() {
+    async cancelTask(task) {
       await fb
         .cancelTask(this.$fireAuth, this.$fireStore)
         .then(() => {

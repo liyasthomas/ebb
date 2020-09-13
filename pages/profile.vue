@@ -25,9 +25,8 @@
             </div>
             <div v-else key="streak">Loading Streak Count</div>
 
-            <TodayTasks key="today" />
-            <PastTasks key="past" />
-            <Empty key="empty" />
+            <TodayProfile key="today" />
+            <PastLife key="past" />
           </TranslateGroupDown>
         </div>
         <SidebarRight> </SidebarRight>
