@@ -172,7 +172,7 @@ export default {
           icon: 'done',
         })
 
-        this.$router.push(`/finish?id=${logEntry.activeTask}`)
+        this.$router.push(`/finish?id=${logEntry.activeReward}`)
       } catch (_e) {
         this.$toast.error('Something went wrong, try again', {
           icon: 'error',
