@@ -19,6 +19,12 @@
 
 _— Ralph Waldo Emerson_
 
+---
+
+[![Screenshots](https://i.imgur.com/8jlHJsl.png)](http://ebb.vercel.app)
+
+---
+
 **ebb** is a web app that gamifies stress/anxiety/depression management in an actionable manner to provide relief. We developed ebb to address the problem statement of using technology to aid issues centered around stress/anxiety/depression.
 
 We want to help people with stress/anxiety/depression realise their ability to take control of their condition and take actionable steps to obtain a positive impact on their mental health.
@@ -27,7 +33,7 @@ An immersive task-based journey that inspires people towards self-discovery and 
 
 ---
 
-[![Video demo](https://yt-embed.herokuapp.com/embed?v=VrhNVepG1lI)](https://www.youtube.com/watch?v=VrhNVepG1lI)
+[![Video demo](https://img.youtube.com/vi/VrhNVepG1lI/0.jpg)](https://www.youtube.com/watch?v=VrhNVepG1lI)
 
 ---
 
