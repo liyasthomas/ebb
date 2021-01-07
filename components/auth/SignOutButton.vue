@@ -7,7 +7,7 @@ export default {
   methods: {
     async signOut() {
       try {
-        await this.$fireAuth.signOut()
+        await this.$fire.auth.signOut()
         this.$toast.info('Signed out', {
           icon: 'person',
         })

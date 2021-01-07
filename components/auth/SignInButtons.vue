@@ -83,18 +83,18 @@ export default {
       switch (agent) {
         case 'google':
           this.signingInWithGoogle = true
-          provider = new this.$fireAuthObj.GoogleAuthProvider()
+          provider = new this.$fireModule.auth.GoogleAuthProvider()
           break
         case 'github':
           this.signingInWithGitHub = true
-          provider = new this.$fireAuthObj.GithubAuthProvider()
+          provider = new this.$fireModule.auth.GithubAuthProvider()
           break
         default:
           this.signingInWithGoogle = true
-          provider = new this.$fireAuthObj.GoogleAuthProvider()
+          provider = new this.$fireModule.auth.GoogleAuthProvider()
           break
       }
-      return await this.$fireAuth
+      return await this.$fire.auth
         .signInWithPopup(provider)
         .then(({ additionalUserInfo }) => {
           if (additionalUserInfo.isNewUser) {

@@ -180,6 +180,11 @@ export default {
       finishing: false,
     }
   },
+  head() {
+    return {
+      title: `Start - ${this.$store.state.name}`,
+    }
+  },
   computed: {
     activeMood() {
       return this.moods[this.activeMoodIndex].name
@@ -195,14 +200,14 @@ export default {
     async finishClicked() {
       try {
         this.finishing = true
-        await fb.addLogEntryForToday(this.$fireAuth, this.$fireStore, {
+        await fb.addLogEntryForToday(this.$fire.auth, this.$fire.firestore, {
           activeMood: this.activeMoodIndex,
           activeTask: this.activeTaskIndex,
           activeReward: this.activeRewardIndex,
           taskStatus: 'PENDING', // 'PENDING' | 'COMPLETE' | 'NOT-COMPLETE' | 'CANCELLED'
         })
 
-        await fb.incrementStreak(this.$fireAuth, this.$fireStore)
+        await fb.incrementStreak(this.$fire.auth, this.$fire.firestore)
 
         this.$router.push('/')
       } catch (e) {
@@ -221,11 +226,6 @@ export default {
     next() {
       this.$refs.introSwiper.$swiper.slideNext()
     },
-  },
-  head() {
-    return {
-      title: `Start - ${this.$store.state.name}`,
-    }
   },
 }
 </script>

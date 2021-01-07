@@ -1,8 +1,12 @@
+import webpack from 'webpack'
+
+// Common options
 export const options = {
   name: 'ebb',
   shortDescription: 'Feel life again from a new perspective.',
   description:
     'ebb is an immersive task-based journey that inspires people towards self-discovery and emotional maturity — gain the ability to be fully present in the moment.',
+  keywords: 'ebb, stress, relief',
   loading: {
     color: 'var(--color-accent)',
     background: 'var(--color-primary)',
@@ -18,30 +22,18 @@ export const options = {
 }
 
 export default {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'spa',
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
+  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
+  ssr: false,
+
+  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: `${options.name} - ${options.shortDescription}`,
     meta: [
       {
         name: 'keywords',
-        content: 'ebb, ebb life',
-      },
-      {
-        name: 'X-UA-Compatible',
-        content: 'IE=edge, chrome=1',
+        content: options.keywords,
       },
       {
         itemprop: 'name',
@@ -53,11 +45,7 @@ export default {
       },
       {
         itemprop: 'image',
-        content: '/icon.png',
-      },
-      {
-        property: 'og:image',
-        content: '/icon.png',
+        content: `${process.env.BASE_URL}/banner.jpg`,
       },
       // Add to homescreen for Chrome on Android. Fallback for PWA (handled by nuxt)
       {
@@ -67,7 +55,7 @@ export default {
       // Windows phone tile icon
       {
         name: 'msapplication-TileImage',
-        content: `/icon.png`,
+        content: '/icon.png',
       },
       {
         name: 'msapplication-TileColor',
@@ -78,51 +66,32 @@ export default {
         content: 'no',
       },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'apple-touch-icon',
-        href: '/icon.png',
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: '/icon.png',
-      },
-    ],
   },
-  /*
-   ** Customize the progress-bar color
-   */
+
+  // Customize the progress-bar color (https://nuxtjs.org/api/configuration-loading/#customizing-the-progress-bar)
   loading: { color: options.loading.color, continuous: true },
-  /*
-   ** Customize the loading indicator
-   */
+
+  // Customize the loading indicator (https://nuxtjs.org/api/configuration-loading-indicator)
   loadingIndicator: {
     name: 'pulse',
     color: options.loading.color,
     background: options.loading.background,
   },
-  /*
-   ** Global CSS
-   */
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '~/assets/scss/themes.scss',
     '~/assets/scss/styles.scss',
     '~/assets/scss/fonts.scss',
   ],
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
-   */
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: ['~/plugins/v-tooltip', '~/plugins/v-modal', '~/plugins/v-swiper'],
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // Doc: https://pwa.nuxtjs.org
     '@nuxtjs/pwa',
@@ -135,9 +104,8 @@ export default {
     // Doc: https://github.com/nuxt-community/color-mode-module
     '@nuxtjs/color-mode',
   ],
-  /*
-   ** Nuxt.js modules
-   */
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // Doc: https://axios.nuxtjs.org
     '@nuxtjs/axios',
@@ -148,13 +116,17 @@ export default {
     // Doc: https://i18n.nuxtjs.org
     'nuxt-i18n',
   ],
+
+  // PWA module configuration (https://pwa.nuxtjs.org/setup)
   pwa: {
     meta: {
+      name: `${options.name} - ${options.shortDescription}`,
+      description: options.description,
       ogHost: process.env.BASE_URL,
+      ogImage: `${process.env.BASE_URL}/banner.jpg`,
       twitterCard: 'summary_large_image',
       twitterSite: options.social.twitter,
       twitterCreator: options.social.twitter,
-      description: options.shortDescription,
       theme_color: options.app.background,
     },
     manifest: {
@@ -163,30 +135,37 @@ export default {
       description: options.shortDescription,
       start_url: '/',
       background_color: options.app.background,
-      theme_color: options.app.background,
     },
   },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
-  build: {},
-  /*
-   ** Generate configuration
-   */
+
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {
+    // You can extend webpack config here
+    extend(config, ctx) {
+      // Sets webpack's mode to development if `isDev` is true.
+      if (ctx.isDev) {
+        config.mode = 'development'
+      }
+    },
+    plugins: [new webpack.IgnorePlugin(/\.\/locale$/)],
+    // parallel: true,
+    // cache: true,
+    // hardSource: true,
+  },
+
+  // Generate configuration (https://nuxtjs.org/api/configuration-generate)
   generate: {
     fallback: true,
   },
+
+  // Toast module configuration (https://github.com/nuxt-community/modules/tree/master/packages/toast)
   toast: {
     position: 'bottom-center',
     duration: 3000,
     keepOnHover: true,
   },
+
+  // Firebase module configuration (https://github.com/nuxt-community/firebase-module)
   firebase: {
     config: {
       apiKey: process.env.API_KEY,
@@ -205,13 +184,13 @@ export default {
         },
       },
       firestore: true,
-      storage: true,
     },
   },
+
+  // Color Mode module configuration (https://github.com/nuxt-community/color-mode-module)
   colorMode: { preference: 'light' },
-  publicRuntimeConfig: {
-    BASE_URL: process.env.BASE_URL || '/',
-  },
+
+  // i18n module configuration (https://github.com/nuxt-community/i18n-module)
   i18n: {
     locales: [
       {
@@ -234,6 +213,13 @@ export default {
     lazy: true,
     langDir: 'locales/',
   },
+
+  // Public runtime configuration (https://nuxtjs.org/guide/runtime-config)
+  publicRuntimeConfig: {
+    BASE_URL: process.env.BASE_URL || '/',
+  },
+
+  // Private runtime configuration (https://nuxtjs.org/guide/runtime-config)
   privateRuntimeConfig: {
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
@@ -242,8 +228,9 @@ export default {
     STORAGE_BUCKET: process.env.STORAGE_BUCKET,
     MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
     APP_ID: process.env.APP_ID,
-    MEASUREMENT_ID: process.env.MEASUREMENT_ID,
   },
+
+  // Router configuration (https://nuxtjs.org/api/configuration-router)
   router: {
     linkActiveClass: 'text-accent hover:text-accent',
     linkExactActiveClass: 'text-accent hover:text-accent',

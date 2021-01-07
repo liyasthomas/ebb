@@ -146,8 +146,8 @@ export default {
   },
   mounted() {
     const subscription = fb.subscribeToLogForToday(
-      this.$fireAuth,
-      this.$fireStore,
+      this.$fire.auth,
+      this.$fire.firestore,
       (logs) => {
         if (logs) {
           this.todaysLogs = logs.filter((item) => item.taskStatus === 'PENDING')
@@ -169,7 +169,11 @@ export default {
       const logEntry = this.todaysLogs[taskIndex]
 
       try {
-        await fb.completeLogTask(this.$fireAuth, this.$fireStore, logEntry)
+        await fb.completeLogTask(
+          this.$fire.auth,
+          this.$fire.firestore,
+          logEntry
+        )
 
         this.$toast.success('Task completed', {
           icon: 'done',
@@ -185,8 +189,8 @@ export default {
       this.cancelling = true
       try {
         await fb.cancelLogTask(
-          this.$fireAuth,
-          this.$fireStore,
+          this.$fire.auth,
+          this.$fire.firestore,
           this.todaysLogs[taskIndex]
         )
 

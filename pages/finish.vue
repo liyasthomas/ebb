@@ -30,15 +30,15 @@ import rewards from '~/helpers/data/rewards'
 
 export default {
   middleware: 'auth-redirect-signin',
-  computed: {
-    reward() {
-      return rewards[this.$route.query.id || 0]
-    },
-  },
   head() {
     return {
       title: `Finish - ${this.$store.state.name}`,
     }
+  },
+  computed: {
+    reward() {
+      return rewards[this.$route.query.id || 0]
+    },
   },
 }
 </script>

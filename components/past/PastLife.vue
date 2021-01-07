@@ -76,8 +76,8 @@ export default {
   },
   mounted() {
     const sub = fb.subscribeToLogEntriesForPast7Days(
-      this.$fireAuth,
-      this.$fireStore,
+      this.$fire.auth,
+      this.$fire.firestore,
       (logs) => {
         this.past = logs.map((log) => {
           return {
@@ -121,7 +121,7 @@ export default {
     },
     async deleteLog(logId) {
       try {
-        await fb.deleteLogEntry(this.$fireAuth, this.$fireStore, logId)
+        await fb.deleteLogEntry(this.$fire.auth, this.$fire.firestore, logId)
         this.$toast.error('Task deleted', {
           icon: 'done',
         })

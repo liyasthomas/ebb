@@ -56,17 +56,22 @@ export default {
       deleting: false,
     }
   },
+  head() {
+    return {
+      title: `Account Settings - ${this.$store.state.name}`,
+    }
+  },
   methods: {
     async deleteAccount() {
       this.deleting = true
 
       try {
-        await fb.deleteUser(this.$fireAuth, this.$fireStore)
+        await fb.deleteUser(this.$fire.auth, this.$fire.firestore)
 
         this.$toast.success('Account deleted', {
           icon: 'save',
         })
-        await this.$fireAuth.signOut()
+        await this.$fire.auth.signOut()
         this.$toast.info('Signed out', {
           icon: 'person',
         })
@@ -78,11 +83,6 @@ export default {
 
       this.deleting = false
     },
-  },
-  head() {
-    return {
-      title: `Account Settings - ${this.$store.state.name}`,
-    }
   },
 }
 </script>
