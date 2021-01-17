@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/firebase": "^7.3.0",
+    "@nuxtjs/firebase": "^7.3.1",
     "@nuxtjs/toast": "^3.3.1",
     "firebase": "^8.2.3",
-    "lottie-web": "^5.7.5",
+    "lottie-web": "^5.7.6",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.18.0",
     "swiper": "^6.4.5",
