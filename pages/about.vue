@@ -36,7 +36,6 @@
       <a class="text-accent" href="https://firebase.google.com">Firebase</a>
       <br />
       Hosted on
-      <a class="text-accent" href="https://www.netlify.com">Netlify</a> and
       <a class="text-accent" href="https://vercel.com/">Vercel</a>
       <br />
       Images from

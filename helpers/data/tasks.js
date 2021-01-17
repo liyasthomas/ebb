@@ -10,12 +10,12 @@ const tasks = [
     duration: '20 mins',
     how: 'https://www.youtube.com/watch?v=d4S4twjeWTs',
     description: [
-      'Do 10 sets of breathing exercises.',
-      'Do 10 minutes Yoga sequence.',
+      'Do 10 sets of breathing exercises',
+      'Do 10 minutes Yoga sequence',
     ],
     quote: {
       description:
-        '“Meditation and concentration are the way to a life of serenity.”',
+        '“Meditation and concentration are the way to a life of serenity”',
       author: '— Baba Ram Dass',
     },
     options: { animationData: meditateAnimation },
@@ -25,12 +25,12 @@ const tasks = [
     duration: '20 mins',
     how: 'https://www.youtube.com/watch?v=KxKJEIqS1HQ',
     description: [
-      'Do 5 minutes brisk walking (warm up).',
-      'Do 10 minutes jogging.',
-      'Do 5 minutes marching in place or knee lifts.',
+      'Do 5 minutes brisk walking',
+      'Do 10 minutes jogging',
+      'Do 5 minutes marching in place or knee lifts',
     ],
     quote: {
-      description: '“Running allows me to set my mind free.”',
+      description: '“Running allows me to set my mind free”',
       author: '— Kara Goucher',
     },
     options: { animationData: jogAnimation },
@@ -39,13 +39,10 @@ const tasks = [
     name: 'Read',
     duration: '20 mins',
     how: 'https://www.youtube.com/watch?v=K4Tn4tv836A',
-    description: [
-      'Read newspaper.',
-      'Read novels, poetry, humor, fiction etc.',
-    ],
+    description: ['Read newspaper', 'Read novels, poetry, humor, fiction etc'],
     quote: {
       description:
-        '“There is more treasure in books than in all the pirate’s loot on Treasure Island.”',
+        '“There is more treasure in books than in all the pirate’s loot on Treasure Island”',
       author: '— Walt Disney',
     },
     options: { animationData: readAnimation },
@@ -54,10 +51,10 @@ const tasks = [
     name: 'Listen',
     duration: '20 mins',
     how: 'https://www.youtube.com/watch?v=ez3GgRqhNvA',
-    description: ['Listen to podcast.', 'Listen to music.'],
+    description: ['Listen to a podcast', 'Listen to music'],
     quote: {
       description:
-        '“We have two ears and one tongue so that we would listen more and talk less.”',
+        '“We have two ears and one tongue so that we would listen more and talk less”',
       author: '— Diogenes',
     },
     options: { animationData: listenAnimation },
@@ -66,10 +63,10 @@ const tasks = [
     name: 'Talk',
     duration: '20 mins',
     how: 'https://www.youtube.com/watch?v=A_eG1md3YuY',
-    description: ['Talk to your friends.', 'Talk to your family.'],
+    description: ['Talk to your friends', 'Talk to your family'],
     quote: {
       description:
-        '“A lot of problems in the world would be solved if we talked to each other instead of about each other.”',
+        '“A lot of problems in the world would be solved if we talked to each other instead of about each other”',
       author: '— Nickey Gumbel',
     },
     options: { animationData: talkAnimation },
