@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/firebase": "^7.3.1",
+    "@nuxtjs/firebase": "^7.3.2",
     "@nuxtjs/toast": "^3.3.1",
     "firebase": "^8.2.3",
     "lottie-web": "^5.7.6",
