@@ -5,7 +5,7 @@
 }
 
 @mixin lightTheme {
-  --color-primary: theme('colors.white');
+  --color-primary: theme('colors.blue.50');
   --color-primary-light: theme('colors.white');
   --color-primary-dark: theme('colors.gray.200');
   --color-secondary: theme('colors.gray.600');
