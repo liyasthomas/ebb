@@ -26,11 +26,11 @@
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/toast": "^3.3.1",
-    "firebase": "^8.2.3",
+    "firebase": "^8.2.4",
     "lottie-web": "^5.7.6",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.18.0",
-    "swiper": "^6.4.6",
+    "swiper": "^6.4.8",
     "v-tooltip": "^2.1.2",
     "vue-awesome-swiper": "^4.1.1",
     "vue-js-modal": "^2.0.0-rc.6"
