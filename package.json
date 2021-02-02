@@ -23,7 +23,7 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/axios": "^5.13.0",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/toast": "^3.3.1",
     "firebase": "^8.2.5",
