@@ -1,4 +1,3 @@
----
 name: "pre-release"
 
 on:
@@ -11,8 +10,6 @@ on:
 jobs:
   gh_pre_release:
     runs-on: "ubuntu-latest"
-    env:
-      JEST_VERBOSE: ${{ secrets.JEST_VERBOSE }}
 
     steps:
       - name: "Checkout source code"
@@ -32,10 +29,10 @@ jobs:
           path: "node_modules"
           key: ${{ runner.os }}-yarn-node-modules${{ hashFiles('**/yarn.lock') }}
 
-      - run: "yarn install --frozen-lockfile"
+      - run: "yarn install"
       - run: "yarn lint"
+      - run: "yarn test"
       - run: "yarn generate"
-      - run: "yarn jest --env=node --colors --forceExit"
 
       - uses: "./packages/automatic-releases/"
         with:
