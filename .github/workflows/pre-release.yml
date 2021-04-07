@@ -42,7 +42,6 @@ jobs:
           title: "Development Build"
           files: |
             packages/automatic-releases/dist/index.js
-            packages/keybase-notifications/dist/index.js
         id: "automatic_releases"
 
       # marvinpinto/action-keybase-notifications
