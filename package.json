@@ -27,7 +27,7 @@
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/toast": "^3.3.1",
     "firebase": "^8.2.6",
-    "lottie-web": "^5.7.6",
+    "lottie-web": "^5.12.2",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.20.0",
     "swiper": "^6.4.10",
