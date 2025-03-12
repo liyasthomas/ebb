@@ -8,7 +8,7 @@ const tasks = [
   {
     name: 'Meditate',
     duration: '20 mins',
-    how: 'https://www.youtube.com/watch?v=d4S4twjeWTs',
+    how: 'https://www.youtube.com/embed/d4S4twjeWTs?autoplay=1&rel=0',
     description: [
       'Do 10 sets of breathing exercises',
       'Do 10 minutes Yoga sequence',
@@ -23,7 +23,7 @@ const tasks = [
   {
     name: 'Jog',
     duration: '20 mins',
-    how: 'https://www.youtube.com/watch?v=KxKJEIqS1HQ',
+    how: 'https://www.youtube.com/embed/KxKJEIqS1HQ?autoplay=1&rel=0',
     description: [
       'Do 5 minutes brisk walking',
       'Do 10 minutes jogging',
@@ -38,7 +38,7 @@ const tasks = [
   {
     name: 'Read',
     duration: '20 mins',
-    how: 'https://www.youtube.com/watch?v=K4Tn4tv836A',
+    how: 'https://www.youtube.com/embed/K4Tn4tv836A?autoplay=1&rel=0',
     description: ['Read newspaper', 'Read novels, poetry, humor, fiction etc'],
     quote: {
       description:
@@ -50,7 +50,7 @@ const tasks = [
   {
     name: 'Listen',
     duration: '20 mins',
-    how: 'https://www.youtube.com/watch?v=ez3GgRqhNvA',
+    how: 'https://www.youtube.com/embed/ez3GgRqhNvA?autoplay=1&rel=0',
     description: ['Listen to a podcast', 'Listen to music'],
     quote: {
       description:
@@ -62,7 +62,7 @@ const tasks = [
   {
     name: 'Talk',
     duration: '20 mins',
-    how: 'https://www.youtube.com/watch?v=A_eG1md3YuY',
+    how: 'https://www.youtube.com/embed/A_eG1md3YuY?autoplay=1&rel=0',
     description: ['Talk to your friends', 'Talk to your family'],
     quote: {
       description:
